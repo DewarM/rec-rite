@@ -1,9 +1,10 @@
+require_relative('stockrule')
 require_relative('artist.rb')
 require_relative('../db/sql_runner.rb')
 
 class Album
-
-  attr_reader :id, :title, :stock, :cover_url, :stock_rule_id
+  attr_accessor :stock
+  attr_reader :id, :title, :cover_url, :stock_rule_id
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -38,6 +39,18 @@ class Album
     "
     result = SqlRunner.run(sql)
     return Artist.new(result.first())
+  end
+
+  def stock_status()
+    sql = "
+    SELECT * FROM stockrules
+    WHERE id=#{@stock_rule_id}"
+    result = SqlRunner.run(sql)
+    stock_rule = Stockrule.new(result.first)
+    return "high" if @stock <= stock_rule.stock_high
+    return "medium" if @stock <= stock_rule.stock_medium
+    return "low" if @stock >= stock_rule.stock_low
+
   end
 
   def Album.all()
