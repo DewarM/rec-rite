@@ -1,4 +1,4 @@
-require('pg')
+require_relative('../db/sql_runner.rb')
 
 class Album
 
@@ -22,9 +22,7 @@ class Album
     #{@stock},
     '#{@cover_url}'
     ) RETURNING * "
-    db = PG.connect({dbname:'recrite', host:'localhost'})
-    result = db.exec(sql)
+    result = SqlRunner.run(sql)
     @id = result.first['id'].to_i()
-    db.close()
   end
 end
