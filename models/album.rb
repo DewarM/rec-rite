@@ -44,6 +44,15 @@ class Album
     SqlRunner.run(sql)
   end
 
+  def Album.find(id)
+    puts id
+    sql = "
+    SELECT * FROM albums
+    WHERE id=#{id};"
+    result = SqlRunner.run(sql)
+    return Album.new(result.first)
+  end
+
   def artist()
     sql = "
     SELECT artists.* FROM artists
