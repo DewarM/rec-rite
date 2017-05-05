@@ -1,6 +1,7 @@
 require('pry-byebug')
 require_relative('../models/album.rb')
 require_relative('../models/artist.rb')
+require_relative('../models/album-artist-join.rb')
 
 album1 = Album.new({
   'title' => 'Mungos greatest hits',
@@ -17,5 +18,11 @@ artist1 = Artist.new({
 
 artist1.save()
 
+album_artist_join1 = AlbumArtistJoin.new({
+  'artist_id' => "#{artist1.id}",
+  'album_id' => "#{album1.id}"
+  })
+
+album_artist_join1.save()
 binding.pry
 nil
