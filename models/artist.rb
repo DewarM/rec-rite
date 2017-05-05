@@ -19,7 +19,14 @@ class Artist
     '#{@picture}'
     ) RETURNING *"
     result = SqlRunner.run(sql)
-    @id = result.first()['id'].to_i
+    @id = result.first['id'].to_i
+  end
+
+  def Artist.all()
+    sql = "
+    SELECT * FROM artists"
+    artists = SqlRunner.run(sql)
+    return artists.map { |artist| Artist.new(artist)}
   end
 
 end
