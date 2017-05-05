@@ -3,13 +3,14 @@ require_relative('../db/sql_runner.rb')
 
 class Album
 
-  attr_reader :id, :title, :stock, :cover_url
+  attr_reader :id, :title, :stock, :cover_url, :stock_rule_id
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
     @title = params['title']
     @stock = params['stock'].to_i
     @cover_url = params['cover_url']
+    @stock_rule_id = params['stock_rule_id'].to_i if params['stock_rule_id']
   end
 
   def save()
@@ -25,6 +26,7 @@ class Album
     ) RETURNING * "
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i()
+    @stock_rule_id = result.first['stock_rule_id'].to_i
   end
 
   def artist()
