@@ -1,3 +1,4 @@
+require_relative('artist.rb')
 require_relative('../db/sql_runner.rb')
 
 class Album
@@ -24,6 +25,17 @@ class Album
     ) RETURNING * "
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i()
+  end
+
+  def artist()
+    sql = "
+    SELECT artists.* FROM artists
+    INNER JOIN albumartistjoins
+    ON artists.id = albumartistjoins.artist_id
+    WHERE albumartistjoins.album_id = #{@id}
+    "
+    result = SqlRunner.run(sql)
+    return Artist.new(result.first())
   end
 
   def Album.all()
