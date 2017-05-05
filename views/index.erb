@@ -2,6 +2,7 @@
 
 <% @albums.each do |album| %>
     <p><%= album.title %></p>
+    <p><%= album.artist.name %></p>
     <p><%= album.stock %></p>
     <p><%= album.cover_url %></p>
 <% end %>
