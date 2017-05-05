@@ -19,4 +19,4 @@ CREATE TABLE albumartistjoins (
   id SERIAL4 PRIMARY KEY,
   artist_id INT4 REFERENCES artists(id),
   album_id INT4 REFERENCES albums(id)
-)
+);
