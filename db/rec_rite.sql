@@ -12,7 +12,7 @@ CREATE TABLE albums (
 CREATE TABLE artists (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
-  cover_url VARCHAR(255)
+  picture VARCHAR(255)
 );
 
 CREATE TABLE albumartistjoins (
