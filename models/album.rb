@@ -50,7 +50,7 @@ class Album
     SELECT * FROM albums
     WHERE id=#{id};"
     result = SqlRunner.run(sql)
-    return Album.new(result.first)
+    return Album.new(result.first())
   end
 
   def artist()
@@ -70,9 +70,9 @@ class Album
     WHERE id=#{@stock_rule_id}"
     result = SqlRunner.run(sql)
     stock_rule = Stockrule.new(result.first)
-    return "high" if @stock <= stock_rule.stock_high
-    return "medium" if @stock <= stock_rule.stock_medium
-    return "low" if @stock >= stock_rule.stock_low
+    return "low" if @stock  >= stock_rule.stock_low
+    return "medium" if @stock >= stock_rule.stock_medium
+    return "high" if @stock >= stock_rule.stock_high
   end
 
   def add_stock()
