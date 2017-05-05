@@ -30,6 +30,20 @@ class Album
     @stock_rule_id = result.first['stock_rule_id'].to_i
   end
 
+  def update()
+    sql = "
+    UPDATE albums SET (
+    title,
+    stock,
+    cover_url
+    ) = (
+    '#{@title}',
+    #{@stock},
+    '#{@cover_url}'
+    ) WHERE id=#{@id}"
+    SqlRunner.run(sql)
+  end
+
   def artist()
     sql = "
     SELECT artists.* FROM artists
@@ -50,7 +64,14 @@ class Album
     return "high" if @stock <= stock_rule.stock_high
     return "medium" if @stock <= stock_rule.stock_medium
     return "low" if @stock >= stock_rule.stock_low
+  end
 
+  def add_stock()
+    @stock += 1
+  end
+
+  def remove_stock()
+    @stock -= 1
   end
 
   def Album.all()
