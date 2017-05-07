@@ -14,6 +14,10 @@ class Album
     @stock_rule_id = params['stock_rule_id'].to_i if params['stock_rule_id']
   end
 
+  def array()
+    return [@title, @stock, @cover_url]
+  end
+
   def save()
     sql = "
     INSERT INTO albums (
@@ -21,11 +25,11 @@ class Album
     stock,
     cover_url
     ) VALUES (
-    '#{@title}',
-    #{@stock},
-    '#{@cover_url}'
+    $1,
+    $2,
+    $3
     ) RETURNING * "
-    result = SqlRunner.run(sql)
+    result = SqlRunner.run_prepare(sql, array())
     @id = result.first['id'].to_i()
     @stock_rule_id = result.first['stock_rule_id'].to_i
   end
@@ -37,11 +41,11 @@ class Album
     stock,
     cover_url
     ) = (
-    '#{@title}',
-    #{@stock},
-    '#{@cover_url}'
+    $1,
+    $2,
+    $3
     ) WHERE id=#{@id}"
-    SqlRunner.run(sql)
+    SqlRunner.run_prepare(sql, array() )
   end
 
   def Album.find(id)

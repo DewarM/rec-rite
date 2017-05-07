@@ -15,11 +15,15 @@ class Artist
     name,
     picture
     ) VALUES (
-    '#{@name}',
-    '#{@picture}'
+    $1,
+    $2
     ) RETURNING *"
-    result = SqlRunner.run(sql)
+    result = SqlRunner.run_prepare(sql, array() )
     @id = result.first['id'].to_i
+  end
+
+  def array()
+    return [@name, @picture]
   end
 
   def Artist.all()

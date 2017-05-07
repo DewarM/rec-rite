@@ -11,4 +11,15 @@ class SqlRunner
     end
     return result
   end
+
+  def SqlRunner.run_prepare(sql, fields)
+    begin
+      db = PG.connect({dbname:'recrite', host:'localhost'})
+      db.prepare('ins', sql)
+      result = db.exec_prepared('ins', fields)
+    ensure
+      db.close()
+    end
+    return result
+  end
 end
