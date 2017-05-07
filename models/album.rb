@@ -86,6 +86,7 @@ class Album
   end
 
   def Album.filter_stock_level(stock_level)
+    return Album.all() if stock_level == "any"
     return Album.all().select { |album| album.stock_status == stock_level }
 
   end

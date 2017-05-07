@@ -1,5 +1,4 @@
-
-<% @albums.each do |album| %>
+<% @filtered_albums.each do |album| %>
     <p><%= album.title %></p>
     <p><%= album.artist.name %></p>
     <p><%= album.stock %> <%= album.stock_status %></p>
