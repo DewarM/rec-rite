@@ -1,0 +1,28 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  background-color: rgb(196, 196, 196);
+  padding: 0.5em;
+}
+
+.logo {
+  margin-right: 0.2em;
+  display: inline-block;
+  text-indent: -9999px;
+  width: 1em;
+  height: 1em;
+  background: url(icon.svg);
+  background-size: 1em, 1em;
+}
+
+header h1 {
+  display: inline-block;
+  font-size: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
