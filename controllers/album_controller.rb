@@ -5,7 +5,9 @@ require_relative('../models/album')
 
 get '/albums' do
   @albums = Album.all()
-  erb(:"albums/index")
+  erb :"albums/index" do
+    erb :"filters/form"
+  end
 end
 
 get '/albums/new' do
