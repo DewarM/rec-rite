@@ -77,10 +77,17 @@ class Album
 
   def add_stock()
     @stock += 1
+    return self
   end
 
   def remove_stock()
     @stock -= 1
+    return self
+  end
+
+  def Album.filter_stock_level(stock_level)
+    return Album.all().select { |album| album.stock_status == stock_level }
+
   end
 
   def Album.all()
