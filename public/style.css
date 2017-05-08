@@ -56,6 +56,10 @@ a {
   margin: 0.5em 0.25em 0.5em 0.25em;
 }
 
+section.item:last-child{
+  margin-bottom: 5em;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -79,7 +83,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100px;
+  min-width: 100px;
 
 }
 
@@ -137,4 +141,9 @@ a {
   .flex-container {
     flex-wrap: wrap;
   }
+}
+@media (max-width: 600px) {
+    .stock-box{
+      min-width: 50px;
+    }
 }
