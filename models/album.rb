@@ -76,7 +76,7 @@ class Album
     stock_rule = Stockrule.new(result.first)
     return "low" if @stock  >= stock_rule.stock_low
     return "medium" if @stock >= stock_rule.stock_medium
-    return "high" if @stock >= stock_rule.stock_high
+    return "high" 
   end
 
   def add_stock()
@@ -86,6 +86,7 @@ class Album
 
   def remove_stock()
     @stock -= 1
+    @stock = 0 if @stock < 0
     return self
   end
 
