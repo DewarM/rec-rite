@@ -31,7 +31,20 @@ a {
   color: black;
 }
 
-.container {
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.main {
+  flex-grow: 3;
+}
+
+.aside {
+  margin:0.5em;
+}
+
+.list-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -41,7 +54,11 @@ a {
 .item {
   box-shadow: 3px 3px 10px #888888;
   border-style: solid;
-  margin: 0.5em;
+  margin: 0.5em 0.25em 0.5em 0.25em;
+}
+
+.form {
+  padding: 0.5em;
 }
 
 .album-text {
