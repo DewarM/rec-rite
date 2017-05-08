@@ -7,7 +7,8 @@ require_relative('../models/artist')
 get '/albums' do
   @albums = Album.all()
   @artists = Artist.all()
-  session.delete(:filter)
+  session.delete(:stock_level)
+  session.delete(:artist_id)
   erb :"albums/index" do
     erb :"filters/form"
   end
@@ -25,12 +26,14 @@ end
 
 post '/albums/:id/add_stock' do
    Album.find(params['id']).add_stock.update
-  redirect "/filter?stock_level=#{session[:stock_level]}&artist_id=#{session[:artist_id]}", 307 if session[:stock_level] || session[:artist_id]
-  redirect to ('/albums')
+   redirect = Helper.build_redirect(session)
+   type = Helper.build_type(session)
+  redirect redirect, type
 end
 
 post '/albums/:id/remove_stock' do
    Album.find(params['id']).remove_stock.update
-  redirect "/filter?stock_level=#{session[:stock_level]}&artist_id=#{session[:artist_id]}", 307 if session[:stock_level] || session[:artist_id] 
-  redirect to ('/albums')
+   redirect = Helper.build_redirect(session)
+   type = Helper.build_type(session)
+   redirect redirect, type
 end
