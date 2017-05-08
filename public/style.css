@@ -10,7 +10,6 @@ header {
 .logo {
   margin-right: 0.2em;
   display: inline-block;
-  text-indent: -9999px;
   width: 1em;
   height: 1em;
   background: url(icon.svg);
@@ -58,7 +57,10 @@ a {
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
   padding: 0.5em;
+  text-align: right;
 }
 
 .album-text {
@@ -129,4 +131,10 @@ a {
 
 .high {
   background-color: rgb(213, 60, 45);
+}
+
+@media (max-width: 930px) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
 }

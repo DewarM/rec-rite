@@ -3,22 +3,25 @@
 
     <div class="item form">
 
-      <label for="stock_level">stock level</label>
-      <select name="stock_level">
-        <option value="any">any</option>
-        <option value="high">high alert</option>
-        <option value="medium">medium alert</option>
-        <option value="low">low alert</option>
-      </select>
+      <div class="form-item">
+        <label for="stock_level">stock level</label>
+        <select name="stock_level">
+          <option value="any">any</option>
+          <option value="high">high alert</option>
+          <option value="medium">medium alert</option>
+          <option value="low">low alert</option>
+        </select>
+      </div>
 
-      <label for="artist_id">artists</label>
-      <select name="artist_id">
-        <option value="any">any</option>
-        <% @artists.each  do |artist| %>
+      <div class="form-item">
+        <label for="artist_id">artists</label>
+        <select name="artist_id">
+          <option value="any">any</option>
+          <% @artists.each  do |artist| %>
           <option value="<%= artist.id %>"><%= artist.name %></option>
-        <% end %>
-      </select>
-
+          <% end %>
+        </select>
+      </div>
 
       <input type="submit" name="" value="filter">
 
