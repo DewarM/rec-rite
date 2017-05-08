@@ -25,12 +25,12 @@ end
 
 post '/albums/:id/add_stock' do
    Album.find(params['id']).add_stock.update
-  redirect "/filter?stock_level=#{session[:stock_level]}", 307 if session[:stock_level]
+  redirect "/filter?stock_level=#{session[:stock_level]}&artist_id=#{session[:artist_id]}", 307 if session[:stock_level] || session[:artist_id]
   redirect to ('/albums')
 end
 
 post '/albums/:id/remove_stock' do
    Album.find(params['id']).remove_stock.update
-  redirect "/filter?stock_level=#{session[:stock_level]}", 307 if session[:stock_level]
+  redirect "/filter?stock_level=#{session[:stock_level]}&artist_id=#{session[:artist_id]}", 307 if session[:stock_level] || session[:artist_id] 
   redirect to ('/albums')
 end

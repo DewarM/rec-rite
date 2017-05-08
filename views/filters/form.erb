@@ -13,6 +13,7 @@
 
       <label for="artist_id">artists</label>
       <select name="artist_id">
+        <option value="any">any</option>
         <% @artists.each  do |artist| %>
           <option value="<%= artist.id %>"><%= artist.name %></option>
         <% end %>
