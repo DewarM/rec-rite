@@ -11,8 +11,8 @@
         <option value="low">low alert</option>
       </select>
 
-      <label for="artist">artists</label>
-      <select name="artist">
+      <label for="artist_id">artists</label>
+      <select name="artist_id">
         <% @artists.each  do |artist| %>
           <option value="<%= artist.id %>"><%= artist.name %></option>
         <% end %>

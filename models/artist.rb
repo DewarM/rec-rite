@@ -26,6 +26,14 @@ class Artist
     return [@name, @picture]
   end
 
+  def Artist.find(id)
+    sql = "
+    SELECT * FROM artists
+    WHERE id = #{id}"
+    artist = SqlRunner.run(sql).first()
+    return Artist.new(artist)
+  end
+
   def Artist.all()
     sql = "
     SELECT * FROM artists"
