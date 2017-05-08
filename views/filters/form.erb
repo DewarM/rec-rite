@@ -1,6 +1,8 @@
 <aside class="aside list-container">
   <form action="/filter" method="post">
+
     <div class="item form">
+
       <label for="stock_level">stock level</label>
       <select name="stock_level">
         <option value="any">any</option>
@@ -8,7 +10,17 @@
         <option value="medium">medium alert</option>
         <option value="low">low alert</option>
       </select>
+
+      <label for="artist">artists</label>
+      <select name="artist">
+        <% @artists.each  do |artist| %>
+          <option value="<%= artist.id %>"><%= artist.name %></option>
+        <% end %>
+      </select>
+
+
       <input type="submit" name="" value="filter">
+
     </div>
   </form>
 </aside>
