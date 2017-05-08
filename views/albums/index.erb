@@ -1,16 +1,39 @@
 <%= yield %>
-<% @albums.each do |album| %>
-    <p><%= album.title %></p>
-    <p><%= album.artist.name %></p>
-    <p><%= album.stock %> <%= album.stock_status %></p>
-    <p><%= album.cover_url %></p>
-    <form action="/albums/<%= album.id %>/add_stock" method="post">
-      <label for="add_stock">Add</label>
-      <input type="submit" name="add_stock" value="Add Stock">
-    </form>
+<main class="container">
+  <% @albums.each do |album| %>
+  <section class="item">
 
-    <form action="/albums/<%= album.id %>/remove_stock" method="post">
-      <label for="remove_stock">Remove</label>
-      <input type="submit" name="remove_stock" value="Remove Stock">
-    </form>
-<% end %>
+    <div class="contents">
+      <img class="album" src="<%= album.cover_url %>" alt="album_cover">
+
+
+      <div class="album-text">
+        <h2><%= album.title %></h2>
+        <p><%= album.artist.name %></p>
+      </div>
+
+      <div class="stock-box end <%= album.stock_status %>">
+        <p><%= album.stock %> </p>
+      </div>
+
+
+      <div class="stock-control-group">
+        <form action="/albums/<%= album.id %>/add_stock" method="post">
+          <label class="hidden" for="add_stock">Add</label>
+          <input class="stock-control-button green" type="submit" name="add_stock" value="+">
+        </form>
+
+        <form action="/albums/<%= album.id %>/remove_stock" method="post">
+          <label class="hidden" for="remove_stock">Remove</label>
+          <input class="stock-control-button red" type="submit" name="remove_stock" value="-">
+        </form>
+
+      </div>
+
+    </div>
+
+
+
+  </section>
+  <% end %>
+</main>

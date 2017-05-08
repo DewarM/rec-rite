@@ -22,7 +22,94 @@ header h1 {
   font-size: 2em;
 }
 
+section h2 {
+  font-size: 1.5em;
+}
+
 a {
   text-decoration: none;
   color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0.5em;
+}
+
+.item {
+  box-shadow: 3px 3px 10px #888888;
+  border-style: solid;
+  margin: 0.5em;
+}
+
+.album-text {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.album {
+  display: inline-block;
+  height:100px;
+  width:100px;
+}
+
+.stock-box {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100px;
+
+}
+
+.end {
+  margin-left: auto;
+}
+
+.stock-control-group {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.stock-control-button {
+  cursor: pointer;
+  -webkit-appearance: none;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-left-style: solid;
+  border-left-width: 1px;
+  transition: background-color 0.2s ease;
+}
+
+.stock-control-group form:last-child input{
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.stock-control-button:hover {
+  background-color: rgb(164, 161, 161);
+}
+
+.contents {
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.low {
+  background-color: rgb(68, 210, 91);
+}
+
+.medium {
+  background-color: rgb(226, 129, 41);
+}
+
+.high {
+  background-color: rgb(213, 60, 45);
 }
