@@ -16,4 +16,9 @@ class AlbumGroup
     return AlbumGroup.new(@album_array.select { |album| album.artist.id == artist_id.to_i })
   end
 
+  def filter(stock_level, artist_id)
+    result = filter_stock_level(stock_level).filter_artist(artist_id)
+    return result.album_array
+  end
+
 end

@@ -12,9 +12,8 @@ post '/filter' do
   session[:stock_level] = stock_level
   session[:artist_id] = artist_id
 
-
   albums = AlbumGroup.new(Album.all())
-  @albums = albums.filter_stock_level(stock_level).filter_artist(artist_id).album_array
+  @albums = albums.filter(stock_level, artist_id)
 
   erb :"albums/index" do
     erb :"filters/form"
