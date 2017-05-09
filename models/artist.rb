@@ -38,7 +38,7 @@ class Artist
     sql = "
     SELECT * FROM artists"
     artists = SqlRunner.run(sql)
-    return artists.map { |artist| Artist.new(artist)}.sort() {|x,y| x.title <=> y.title }
+    return artists.map { |artist| Artist.new(artist)}.sort() {|x,y| x.name <=> y.name }
   end
 
 end
