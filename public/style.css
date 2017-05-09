@@ -103,6 +103,9 @@ section.item:last-child{
 }
 
 .stock-control-button {
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
   -webkit-appearance: none;
   height: 50px;
@@ -111,6 +114,14 @@ section.item:last-child{
   border-left-style: solid;
   border-left-width: 1px;
   transition: background-color 0.2s ease;
+}
+
+.plus {
+  background-image: url(iconmonstr-plus-2.svg);
+}
+
+.minus {
+  background-image: url(iconmonstr-minus-2.svg);
 }
 
 .stock-control-group form:last-child input{
