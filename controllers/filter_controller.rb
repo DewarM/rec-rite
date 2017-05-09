@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/album.rb')
 require_relative('../models/album_group.rb')
+require_relative('../models/search.rb')
 
 post '/filter' do
   @artists = Artist.all()
@@ -21,7 +22,10 @@ post '/filter' do
 end
 
 post '/filter/search' do
-  @albums = Album.all().select{ |album| album.title == params['search']}
+  matcher = Search.new(params['search'])
+  @searched_albums = matcher.search_albums()
+
+
   @artists = Artist.all()
 
 
