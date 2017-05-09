@@ -10,14 +10,13 @@
 
 
       <div class="album-text">
-        <h2><%= album.title %></h2>
+        <a href="/albums/<%= album.id %>/edit"><h2><%= album.title %></h2></a>
         <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %></a>
       </div>
 
       <div class="stock-box end <%= album.stock_status %>">
         <p><%= album.stock %> </p>
       </div>
-
 
       <div class="stock-control-group">
         <form action="/albums/<%= album.id %>/add_stock" method="post">
@@ -29,12 +28,9 @@
           <label class="hidden" for="remove_stock">Remove</label>
           <input class="stock-control-button" type="submit" name="remove_stock" value="-">
         </form>
-
       </div>
 
     </div>
-
-
 
   </section>
   <% end %>

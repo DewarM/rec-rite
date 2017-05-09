@@ -1,0 +1,20 @@
+<form class="" action="/albums" method="post">
+
+  <label for="title">Title</label>
+  <input id="title" type="text" name="title" value="<%= @album.title %>">
+
+  <label for="stock">Stock</label>
+  <input id="stock" type="number" name="stock" value="<%= @album.stock %>">
+
+  <label for="cover_url">cover url</label>
+  <input id="cover_url" type="text" name="cover_url" value="<%= @album.cover_url %>">
+
+  <label for="artist_id">artist</label>
+  <select class="" name="artist_id">
+    <% @artists.each do |artist| %>
+    <option <%= 'selected' if @album.artist.id == artist.id%>  name="artist_id" value="<%= artist.id %>"><%= artist.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="submit">
+</form>

@@ -24,6 +24,12 @@ post '/albums' do
   redirect to("/albums")
 end
 
+get '/albums/:id/edit' do
+  @artists = Artist.all()
+  @album = Album.find(params['id'])
+  erb(:"albums/edit")
+end
+
 post '/albums/:id/add_stock' do
    Album.find(params['id']).add_stock.update
    redirect = Helper.build_redirect(session)
