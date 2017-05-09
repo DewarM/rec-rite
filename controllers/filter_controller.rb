@@ -22,8 +22,12 @@ post '/filter' do
 end
 
 post '/filter/search' do
-  matcher = Search.new(params['search'])
-  matches= matcher.search()
+  search = params['search']
+  session[:search] = search
+
+  matcher = Search.new(search)
+  matches = matcher.search()
+
   @searched_albums = matches[:albums]
   @searched_artists = matches[:artists]
   @artists = Artist.all()

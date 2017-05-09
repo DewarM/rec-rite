@@ -7,8 +7,11 @@ require_relative('../models/artist')
 get '/albums' do
   @albums = Album.all()
   @artists = Artist.all()
+
   session.delete(:stock_level)
   session.delete(:artist_id)
+  session.delete(:search)
+
   erb :"albums/index" do
     erb :"filters/form"
   end
