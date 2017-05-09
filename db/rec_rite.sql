@@ -7,6 +7,7 @@ DROP TABLE albums CASCADE;
 
 CREATE TABLE stockrules (
   id SERIAL4 PRIMARY KEY,
+  name VARCHAR(255),
   stock_high INT4,
   stock_medium INT4,
   stock_low INT4
@@ -45,10 +46,12 @@ CREATE TABLE albumtagjoins (
 );
 
 INSERT INTO stockrules (
+  name,
   stock_high,
   stock_medium,
   stock_low
 ) VALUES (
+  'default',
   1,
   5,
   10
