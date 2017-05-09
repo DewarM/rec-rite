@@ -9,7 +9,15 @@ album1 = Album.new({
   'cover_url' => 'http://mungodewar.com/pic1.png'
   })
 
+album2 = Album.new({
+  'title' => 'Mungos greatest hits vol2',
+  'stock' => '20',
+  'cover_url' => 'http://mungodewar.com/pic2.png'
+  })
+
+
 album1.save()
+album2.save()
 
 artist1 = Artist.new({
   'name' => 'Mungo Dewar',

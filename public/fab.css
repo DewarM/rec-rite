@@ -3,6 +3,7 @@
   bottom: 0;
   position: fixed;
   margin: 1em;
+  right: 0px;
 }
 
 .buttons {
@@ -29,6 +30,7 @@
 }
 
 .buttons:not(:last-child) {
+  display: none;
   width: 3em;
   height: 3em;
   margin: 20px auto 0;
@@ -40,6 +42,7 @@
 
 .container:hover
 .buttons:not(:last-child) {
+  display: block;
   opacity: 1;
   -webkit-transform: none;
       -ms-transform: none;
@@ -61,9 +64,9 @@
   visibility: hidden;
   opacity: 0;
   padding: 5px 7px;
-  margin-left: 12px;
+  margin-right: 12px;
   position: absolute;
-  left: 100%;
+  right: 100%;
   white-space: nowrap;
 }
 

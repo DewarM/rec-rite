@@ -76,7 +76,7 @@ class Album
     stock_rule = Stockrule.new(result.first)
     return "low" if @stock  >= stock_rule.stock_low
     return "medium" if @stock >= stock_rule.stock_medium
-    return "high" 
+    return "high"
   end
 
   def add_stock()
@@ -99,6 +99,6 @@ class Album
   def Album.all()
     sql = "SELECT * FROM albums"
     albums = SqlRunner.run(sql)
-    return albums.map { |album| Album.new(album) }
+    return albums.map { |album| Album.new(album) }.sort() {|x,y| x.title <=> y.title }
   end
 end
