@@ -1,0 +1,9 @@
+<form action="/artists" method="post">
+  <label for="name">name</label>
+  <input id="name" type="text" name="name" value="<%= @artist.name %>">
+
+  <label for="picture">picture url</label>
+  <input id="picture" type="text" name="picture" value="<%= @artist.picture %>">
+
+  <input type="submit" value="submit">
+</form>

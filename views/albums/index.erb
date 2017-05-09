@@ -11,7 +11,7 @@
 
       <div class="album-text">
         <h2><%= album.title %></h2>
-        <p><%= album.artist.name %></p>
+        <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %></a>
       </div>
 
       <div class="stock-box end <%= album.stock_status %>">
