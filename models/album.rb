@@ -4,18 +4,18 @@ require_relative('../db/sql_runner.rb')
 
 class Album
   attr_accessor :stock
-  attr_reader :id, :title, :cover_url, :stock_rule_id
+  attr_reader :id, :title, :cover_url, :stockrule_id
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
     @title = params['title']
     @stock = params['stock'].to_i
     @cover_url = params['cover_url']
-    @stock_rule_id = params['stock_rule_id'].to_i if params['stock_rule_id']
+    @stockrule_id = params['stockrule_id'].to_i
   end
 
   def array()
-    return [@title, @stock, @cover_url]
+    return [@title, @stock, @cover_url, @stockrule_id]
   end
 
   def save()
@@ -23,15 +23,16 @@ class Album
     INSERT INTO albums (
     title,
     stock,
-    cover_url
+    cover_url,
+    stockrule_id
     ) VALUES (
     $1,
     $2,
-    $3
+    $3,
+    $4
     ) RETURNING * "
     result = SqlRunner.run_prepare(sql, array())
     @id = result.first['id'].to_i()
-    @stock_rule_id = result.first['stock_rule_id'].to_i
   end
 
   def update()
@@ -39,11 +40,13 @@ class Album
     UPDATE albums SET (
     title,
     stock,
-    cover_url
+    cover_url,
+    stockrule_id
     ) = (
     $1,
     $2,
-    $3
+    $3,
+    $4
     ) WHERE id=#{@id}"
     SqlRunner.run_prepare(sql, array())
   end
@@ -78,7 +81,7 @@ class Album
   def stock_status()
     sql = "
     SELECT * FROM stockrules
-    WHERE id=#{@stock_rule_id}"
+    WHERE id=#{@stockrule_id}"
     result = SqlRunner.run(sql)
     stock_rule = Stockrule.new(result.first)
     return "low" if @stock  >= stock_rule.stock_low

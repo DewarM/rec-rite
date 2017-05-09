@@ -18,7 +18,7 @@ CREATE TABLE albums (
   title VARCHAR(255),
   stock INT4,
   cover_url VARCHAR(255),
-  stock_rule_id INT4 REFERENCES stockrules(id) DEFAULT 1
+  stockrule_id INT4 REFERENCES stockrules(id)
 );
 
 CREATE TABLE artists (

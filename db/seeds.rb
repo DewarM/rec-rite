@@ -7,13 +7,15 @@ require_relative('../models/stockrule.rb')
 album1 = Album.new({
   'title' => 'Reflektor',
   'stock' => '10',
-  'cover_url' => 'https://upload.wikimedia.org/wikipedia/en/5/57/ArcadeFireReflektor.jpg'
+  'cover_url' => 'https://upload.wikimedia.org/wikipedia/en/5/57/ArcadeFireReflektor.jpg',
+  'stockrule_id' => '1'
   })
 
 album2 = Album.new({
   'title' => "All 'n All",
   'stock' => '20',
-  'cover_url' => 'https://upload.wikimedia.org/wikipedia/en/1/19/Earth%2C_Wind_%26_Fire_-_All%27N_All1.jpg'
+  'cover_url' => 'https://upload.wikimedia.org/wikipedia/en/1/19/Earth%2C_Wind_%26_Fire_-_All%27N_All1.jpg',
+  'stockrule_id' => '1'
   })
 
 
