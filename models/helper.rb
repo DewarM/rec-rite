@@ -1,4 +1,4 @@
-require_relative('./album-artist-join')
+require_relative('./album_artist_join')
 
 class Helper
 
