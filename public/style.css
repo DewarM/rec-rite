@@ -5,6 +5,19 @@ html {
 header {
   background-color: rgb(196, 196, 196);
   padding: 0.5em;
+  display: flex;
+}
+
+header form {
+  display: inline-block;
+  margin-left: auto;
+  display: flex;
+}
+
+header form input {
+  align-self: center;
+  border: none;
+  padding:0.5em;
 }
 
 .logo {
