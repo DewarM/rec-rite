@@ -6,6 +6,11 @@ get '/artists/new' do
   erb(:"artists/new")
 end
 
+post '/artists/:id' do
+  Artist.new(params).update()
+  redirect to("/albums")
+end
+
 post '/artists' do
   Artist.new(params).save()
   redirect to("/albums")
@@ -13,5 +18,10 @@ end
 
 get '/artists/:id/edit' do
   @artist = Artist.find(params['id'])
-  erb :"artists/edit"
+  erb(:"artists/edit")
+end
+
+post '/artists/:id/delete' do
+  Artist.find(params['id']).delete
+  redirect to("/albums")
 end

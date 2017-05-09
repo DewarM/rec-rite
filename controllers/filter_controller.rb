@@ -10,6 +10,7 @@ post '/filter' do
   stock_level = params['stock_level']
   artist_id = params['artist_id']
 
+  session.delete(:search)
   session[:stock_level] = stock_level
   session[:artist_id] = artist_id
 
@@ -23,6 +24,9 @@ end
 
 post '/filter/search' do
   search = params['search']
+
+  session.delete(:stock_level)
+  session.delete(:artist_id)
   session[:search] = search
 
   matcher = Search.new(search)

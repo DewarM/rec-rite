@@ -28,8 +28,8 @@ CREATE TABLE artists (
 
 CREATE TABLE albumartistjoins (
   id SERIAL4 PRIMARY KEY,
-  artist_id INT4 REFERENCES artists(id),
-  album_id INT4 REFERENCES albums(id)
+  artist_id INT4 REFERENCES artists(id) ON DELETE CASCADE,
+  album_id INT4 REFERENCES albums(id) ON DELETE CASCADE
 );
 
 

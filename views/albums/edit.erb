@@ -1,4 +1,4 @@
-<form class="" action="/albums" method="post">
+<form class="" action="/albums/<%= @album.id %>" method="post">
 
   <label for="title">Title</label>
   <input id="title" type="text" name="title" value="<%= @album.title %>">
@@ -17,4 +17,7 @@
   </select>
 
   <input type="submit" value="submit">
+</form>
+<form class="" action="/albums/<%= @album.id %>/delete" method="post">
+  <input type="submit" value="delete">
 </form>

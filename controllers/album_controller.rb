@@ -12,14 +12,26 @@ get '/albums' do
   session.delete(:artist_id)
   session.delete(:search)
 
-  erb :"albums/index" do
-    erb :"filters/form"
+  if @albums == []
+    erb :"albums/no_records" do
+      erb :"filters/form"
+    end
+  else
+    erb :"albums/index" do
+      erb :"filters/form"
+    end
   end
+
 end
 
 get '/albums/new' do
   @artists = Artist.all()
   erb(:"albums/new")
+end
+
+post '/albums/:id' do
+  Album.new(params).update
+  redirect to("/albums")
 end
 
 post '/albums' do
@@ -31,6 +43,11 @@ get '/albums/:id/edit' do
   @artists = Artist.all()
   @album = Album.find(params['id'])
   erb(:"albums/edit")
+end
+
+post '/albums/:id/delete' do
+  Album.find(params['id']).delete
+  redirect to("/albums")
 end
 
 post '/albums/:id/add_stock' do
