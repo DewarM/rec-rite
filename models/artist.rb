@@ -23,6 +23,18 @@ class Artist
     @id = result.first['id'].to_i
   end
 
+  def update()
+    sql = "
+    UPDATE artists SET (
+    name,
+    picture
+    ) = (
+    $1,
+    $2
+    ) WHERE id=#{@id}"
+    SqlRunner.run_prepare(sql, array())
+  end
+
   def delete()
     albums().each {|album| album.delete}
     sql="
