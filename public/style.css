@@ -77,6 +77,29 @@ section.item:last-child{
   display: inline-block;
 }
 
+.text-element {
+  display: flex;
+  align-items: center;
+}
+
+.cog {
+  margin-left: 0.3em;
+  opacity: 0;
+  transition: visibility 0s linear 0.1s, opacity 0.1s linear;
+  visibility: hidden;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background-image: url(iconmonstr-gear-1.svg);
+  background-size: 1em;
+}
+
+.album-text .text-element:hover .cog {
+  transition-delay: 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
 .album {
   display: inline-block;
   height:100px;
@@ -158,7 +181,7 @@ section.item:last-child{
     flex-wrap: wrap;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 750px) {
     .stock-box{
       min-width: 50px;
     }

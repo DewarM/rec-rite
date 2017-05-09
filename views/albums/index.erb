@@ -10,8 +10,14 @@
 
 
       <div class="album-text">
-        <a href="/albums/<%= album.id %>/edit"><h2><%= album.title %></h2></a>
-        <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %></a>
+        <div class="text-element">
+          <a href="/albums/<%= album.id %>/edit"><h2><%= album.title %></h2></a>
+          <div class="cog"></div>
+        </div>
+        <div class="text-element">
+          <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %></a>
+          <div class="cog"></div>
+        </div>
       </div>
 
       <div class="stock-box end <%= album.stock_status %>">
