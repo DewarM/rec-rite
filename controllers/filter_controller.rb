@@ -25,7 +25,7 @@ post '/filter/search' do
   matcher = Search.new(params['search'])
   matches= matcher.search()
   @searched_albums = matches[:albums]
-  @seached_artists = matches[:artists]
+  @searched_artists = matches[:artists]
   @artists = Artist.all()
 
 

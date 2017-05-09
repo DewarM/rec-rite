@@ -1,6 +1,7 @@
 <%= yield %>
 
 <main class="main list-container">
+  <h2>Album search results</h2>
   <% @searched_albums.each do |album| %>
   <section class="item">
 
@@ -27,6 +28,22 @@
           <label class="hidden" for="remove_stock">Remove</label>
           <input class="stock-control-button" type="submit" name="remove_stock" value="-">
         </form>
+      </div>
+
+    </div>
+
+  </section>
+  <% end %>
+
+  <h2>Artist search results</h2>
+  <% @searched_artists.each do |artist| %>
+  <section class="item">
+
+    <div class="contents">
+      <img class="album" src="<%= artist.picture %>" alt="picture">
+
+      <div class="album-text">
+        <a href="/artists/<%= artist.id %>/edit"><h2><%= artist.name %></h2></a>
       </div>
 
     </div>
