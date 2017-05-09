@@ -19,3 +19,13 @@ post '/filter' do
     erb :"filters/form"
   end
 end
+
+post '/filter/search' do
+  @albums = Album.all().select{ |album| album.title == params['search']}
+  @artists = Artist.all()
+
+
+  erb :"filters/search" do
+    erb :"filters/form"
+  end
+end

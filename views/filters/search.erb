@@ -1,0 +1,36 @@
+<%= yield %>
+
+<main class="main list-container">
+  <% @albums.each do |album| %>
+  <section class="item">
+
+    <div class="contents">
+      <img class="album" src="<%= album.cover_url %>" alt="album_cover">
+
+
+      <div class="album-text">
+        <a href="/albums/<%= album.id %>/edit"><h2><%= album.title %></h2></a>
+        <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %></a>
+      </div>
+
+      <div class="stock-box end <%= album.stock_status %>">
+        <p><%= album.stock %> </p>
+      </div>
+
+      <div class="stock-control-group">
+        <form action="/albums/<%= album.id %>/add_stock" method="post">
+          <label class="hidden" for="add_stock">Add</label>
+          <input class="stock-control-button" type="submit" name="add_stock" value="+">
+        </form>
+
+        <form action="/albums/<%= album.id %>/remove_stock" method="post">
+          <label class="hidden" for="remove_stock">Remove</label>
+          <input class="stock-control-button" type="submit" name="remove_stock" value="-">
+        </form>
+      </div>
+
+    </div>
+
+  </section>
+  <% end %>
+</main>

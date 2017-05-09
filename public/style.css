@@ -68,6 +68,10 @@ section.item:last-child{
   text-align: right;
 }
 
+.search {
+  width: 100%;
+}
+
 .album-text {
   vertical-align: top;
   display: inline-block;
