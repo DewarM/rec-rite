@@ -142,15 +142,15 @@ section.item:last-child{
 }
 
 .low {
-  background-color: rgb(68, 210, 91);
+  background-color: #4CAF50;
 }
 
 .medium {
-  background-color: rgb(226, 129, 41);
+  background-color: #FF9800;
 }
 
 .high {
-  background-color: rgb(213, 60, 45);
+  background-color: #F44336;
 }
 
 @media (max-width: 930px) {
