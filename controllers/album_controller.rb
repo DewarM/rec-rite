@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 require_relative('../models/helper')
 require_relative('../models/album')
 require_relative('../models/artist')
+require_relative('../models/stockrule')
 
 get '/albums' do
   @albums = Album.all()
@@ -26,6 +27,7 @@ end
 
 get '/albums/new' do
   @artists = Artist.all()
+  @stockrules = Stockrule.all()
   erb(:"albums/new")
 end
 

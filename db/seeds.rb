@@ -2,6 +2,7 @@ require('pry-byebug')
 require_relative('../models/album.rb')
 require_relative('../models/artist.rb')
 require_relative('../models/album_artist_join.rb')
+require_relative('../models/stockrule.rb')
 
 album1 = Album.new({
   'title' => 'Reflektor',

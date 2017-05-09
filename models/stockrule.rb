@@ -2,7 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class Stockrule
 
-  attr_reader :stock_high, :stock_medium, :stock_low, :name
+  attr_reader :stock_high, :stock_medium, :stock_low, :name, :id
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -27,6 +27,13 @@ class Stockrule
     ) RETURNING *"
     result = SqlRunner.run(sql)
     @id = result.first['id'].to_i
+  end
+
+  def Stockrule.all()
+    sql = "
+    SELECT * FROM stockrules;"
+    stockrules = SqlRunner.run(sql)
+    return stockrules.map { |stockrule| Stockrule.new(stockrule) }
   end
 
 end

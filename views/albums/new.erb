@@ -17,5 +17,12 @@
     <% end %>
   </select>
 
+  <label for="stockrule_id">stockrule</label>
+  <select class="" name="stockrule_id">
+    <% @stockrules.each do |stockrule| %>
+    <option value="<%= stockrule.id %>"><%= stockrule.name %></option>
+    <% end %>
+  </select>
+
   <input type="submit" value="submit">
 </form>
