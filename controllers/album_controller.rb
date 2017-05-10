@@ -42,6 +42,7 @@ post '/albums' do
 end
 
 get '/albums/:id/edit' do
+  @stockrules = Stockrule.all()
   @artists = Artist.all()
   @album = Album.find(params['id'])
   erb(:"albums/edit")
