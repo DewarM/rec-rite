@@ -186,6 +186,10 @@ section.item:last-child{
   display: none;
 }
 
+.grey {
+  background-color: rgb(173, 173, 173);
+}
+
 .low {
   background-color: #4CAF50;
 }
