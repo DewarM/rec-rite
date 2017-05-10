@@ -46,7 +46,7 @@ a {
 
 .flex-container {
   display: flex;
-  flex-wrap: nowrap;
+  /*flex-wrap: nowrap;*/
 }
 
 .main {
@@ -203,7 +203,7 @@ section.item:last-child{
     flex-wrap: wrap;
   }
 }
-@media (max-width: 750px) {
+@media (max-width: 540px) {
     .stock-box{
       min-width: 50px;
     }
