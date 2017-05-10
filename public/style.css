@@ -12,6 +12,7 @@ header form {
   display: inline-block;
   margin-left: auto;
   display: flex;
+  align-items: center;
 }
 
 header form input {
@@ -29,7 +30,7 @@ header form input {
   background-size: 1em, 1em;
 }
 
-header h1 {
+header h1 a{
   display: inline-block;
   font-size: 2em;
 }
@@ -82,7 +83,15 @@ section.item:last-child{
 }
 
 .search {
+  padding-left: 40px;
   width: 100%;
+  background-origin: padding-box;
+  background-position-x: 10px;
+  background-position-y: center;
+  background-image: url(iconmonstr-magnifier-2.svg);
+  background-repeat: no-repeat;
+  background-size: 20px, 20px;
+  height: 24px;
 }
 
 .album-text {
@@ -198,4 +207,37 @@ section.item:last-child{
     .stock-box{
       min-width: 50px;
     }
+}
+
+@media (max-width: 340px) {
+  header h1 a{
+    font-size: 1.5em;
+  }
+  .album {
+    width: 80px;
+    height:80px;
+  }
+  .stock-control-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 320px)
+  and (max-width: 620px) {
+  #mobile-filter {
+    display: visible;
+  }
+  #desktop-filter {
+    display: none;
+  }
+}
+
+@media (min-width: 621px) {
+  #mobile-filter {
+    display: none;
+  }
+  #desktop-filter {
+    display: visible;
+  }
 }

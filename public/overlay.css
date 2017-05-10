@@ -1,0 +1,51 @@
+
+#op{
+  display:none;
+}
+
+.lower label:hover{
+  cursor:pointer;
+}
+
+.overlay{
+	position: fixed;
+	width: 100%;
+	height: calc(100% - 51px);
+	bottom: 0;
+	left: 0;
+  background-color: white;
+}
+
+.overlay #op-control{
+	width: 58px;
+	height:58px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	background: url('http://tympanus.net/Development/FullscreenOverlayStyles/img/cross.png');
+	z-index: 100;
+  cursor:pointer;
+}
+
+.overlay nav {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	font-size: 1.5em;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.lower~.overlay-hugeinc{
+	opacity: 0;
+	visibility: hidden;
+}
+
+#op:checked~.overlay-hugeinc{
+	opacity: 1;
+	visibility: visible;
+}
+
+.overlay-hugeinc nav {
+	-moz-perspective: 300px;
+}
