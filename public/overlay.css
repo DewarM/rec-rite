@@ -31,6 +31,7 @@
 	text-align: center;
 	position: relative;
 	top: 50%;
+  left: 25%;
 	font-size: 1.5em;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);

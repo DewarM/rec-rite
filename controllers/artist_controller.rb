@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 require_relative('../models/artist')
 
 get '/artists/new' do
+  @artists = Artist.all()
   erb(:"artists/new")
 end
 
@@ -17,6 +18,7 @@ post '/artists' do
 end
 
 get '/artists/:id/edit' do
+  @artists = Artist.all()
   @artist = Artist.find(params['id'])
   erb(:"artists/edit")
 end

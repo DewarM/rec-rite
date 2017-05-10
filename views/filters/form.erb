@@ -1,43 +1,3 @@
-<aside id="mobile-filter" class="">
-  <input type="checkbox" id="op"></input>
-  <div class="lower">
-    <label for="op">filter</label>
-  </div>
-  <div class="overlay overlay-hugeinc">
-        <label id="op-control" for="op"></label>
-        <nav>
-          <form action="/filter" method="post">
-            <ul>
-              <li>
-                <label for="stock_level">stock level</label>
-                <select name="stock_level">
-                  <option value="any">any</option>
-                  <option value="high">high alert</option>
-                  <option value="medium">medium alert</option>
-                  <option value="low">low alert</option>
-                </select>
-              </li>
-
-              <li>
-                <label for="artist_id">artists</label>
-                <select name="artist_id">
-                  <option value="any">any</option>
-                  <% @artists.each  do |artist| %>
-                  <option value="<%= artist.id %>"><%= artist.name %></option>
-                  <% end %>
-                </select>
-              </li>
-
-              <li>
-                <input type="submit" name="" value="filter">
-              </li>
-
-            </ul>
-          </form>
-        </nav>
-  </div>
-</aside>
-
 <aside id="desktop-filter" class="aside list-container">
 
   <form action="/filter" method="post">
@@ -47,9 +7,9 @@
         <label for="stock_level">stock level</label>
         <select name="stock_level">
           <option value="any">any</option>
-          <option value="high">high alert</option>
-          <option value="medium">medium alert</option>
-          <option value="low">low alert</option>
+          <option value="high">low stock level</option>
+          <option value="medium">medium stock level</option>
+          <option value="low">high stock level</option>
         </select>
       </div>
 
