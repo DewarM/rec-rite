@@ -17,8 +17,14 @@ post '/filter' do
   albums = AlbumGroup.new(Album.all())
   @albums = albums.filter(stock_level, artist_id)
 
-  erb :"albums/index" do
-    erb :"filters/form"
+  if @albums == []
+    erb :"albums/no_records" do
+      erb :"filters/form"
+    end
+  else
+    erb :"albums/index" do
+      erb :"filters/form"
+    end
   end
 end
 
