@@ -3,6 +3,23 @@
   display:none;
 }
 
+.lower {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.lower label {
+}
+
+.lower .filter-icon {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+  background-image: url(iconmonstr-filter-1.svg)
+}
+
 .lower label:hover{
   cursor:pointer;
 }

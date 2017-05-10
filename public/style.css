@@ -10,7 +10,6 @@ header {
 
 header form {
   display: inline-block;
-  margin-left: auto;
   display: flex;
   align-items: center;
 }
@@ -223,6 +222,10 @@ section.item:last-child{
   }
 }
 
+#mobile-filter {
+  margin-left: auto;
+}
+
 @media (min-width: 320px)
   and (max-width: 620px) {
   #mobile-filter {
@@ -239,5 +242,8 @@ section.item:last-child{
   }
   #desktop-filter {
     display: visible;
+  }
+  header form {
+    margin-left: auto;
   }
 }
