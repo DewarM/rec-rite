@@ -2,6 +2,7 @@
 
 <main class="main list-container">
   <h2>Album search results</h2>
+  <%= erb(:"albums/no_records") if @searched_albums == [] %>
   <% @searched_albums.each do |album| %>
   <section class="item">
 
@@ -42,6 +43,7 @@
   <% end %>
 
   <h2>Artist search results</h2>
+  <%= erb(:"artists/no_artists") if @searched_artists == [] %>
   <% @searched_artists.each do |artist| %>
   <section class="item">
 
