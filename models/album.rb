@@ -44,6 +44,7 @@ class Album
     $3,
     $4
     ) WHERE id=#{@id}"
+    # Maybe even pass the self here and deconstruct in run_method?
     SqlRunner.run_prepare(sql, [@title, @stock, @cover_url, @stockrule_id])
   end
 

@@ -19,7 +19,7 @@ class Artist
     $1,
     $2
     ) RETURNING *"
-    result = SqlRunner.run_prepare(sql, array() )
+    result = SqlRunner.run_prepare(sql, [@name, @picture] )
     @id = result.first['id'].to_i
   end
 
@@ -32,7 +32,7 @@ class Artist
     $1,
     $2
     ) WHERE id=#{@id}"
-    SqlRunner.run_prepare(sql, array())
+    SqlRunner.run_prepare(sql, [@name, @picture])
   end
 
   def delete()
@@ -51,10 +51,6 @@ class Artist
     WHERE albumartistjoins.artist_id = #{@id}
     "
     return SqlRunner.run(sql).map { |album| Album.new(album) }
-  end
-
-  def array()
-    return [@name, @picture]
   end
 
   def Artist.find(id)
