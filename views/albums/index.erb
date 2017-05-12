@@ -2,6 +2,7 @@
 <%= yield %>
 
 <main class="main list-container">
+  <%= erb(:"albums/no_records") if @albums == [] %>
   <% @albums.each do |album| %>
   <section class="item">
 
