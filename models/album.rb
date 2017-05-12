@@ -14,10 +14,6 @@ class Album
     @stockrule_id = params['stockrule_id'].to_i
   end
 
-  def array()
-    return [@title, @stock, @cover_url, @stockrule_id]
-  end
-
   def save()
     sql = "
     INSERT INTO albums (
@@ -31,7 +27,7 @@ class Album
     $3,
     $4
     ) RETURNING * "
-    result = SqlRunner.run_prepare(sql, array())
+    result = SqlRunner.run_prepare(sql, [@title, @stock, @cover_url, @stockrule_id])
     @id = result.first['id'].to_i()
   end
 
@@ -48,7 +44,7 @@ class Album
     $3,
     $4
     ) WHERE id=#{@id}"
-    SqlRunner.run_prepare(sql, array())
+    SqlRunner.run_prepare(sql, [@title, @stock, @cover_url, @stockrule_id])
   end
 
   def delete()
