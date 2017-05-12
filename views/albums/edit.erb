@@ -43,10 +43,10 @@
       </div>
 
       <div class="stock-box end grey">
-        <form class="" action="/albums/<%= @album.id %>/delete" method="post">
-          <input type="submit" value="delete">
-        </form>
         <input type="submit" value="submit">
+      </form>
+      <form class="delete" action="/albums/<%= @album.id %>/delete" method="post">
+        <input type="submit" value="delete">
       </form>
       </div>
 
