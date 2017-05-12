@@ -11,12 +11,12 @@
 
       <div class="album-text">
         <div class="text-element">
-          <a href="/albums/<%= album.id %>/edit"><h2><%= album.title %></h2></a>
-          <div class="cog"></div>
+          <a href="/albums/<%= album.id %>/edit"><h2><%= album.title %><div class="cog"></div></h2></a>
+
         </div>
         <div class="text-element">
-          <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %></a>
-          <div class="cog"></div>
+          <a href="/artists/<%= album.artist.id %>/edit"><%= album.artist.name %><div class="cog"></div></a>
+
         </div>
       </div>
 
@@ -50,8 +50,7 @@
 
       <div class="album-text">
         <div class="text-element">
-          <a href="/artists/<%= artist.id %>/edit"><h2><%= artist.name %></h2></a>
-          <div class="cog"></div>
+          <a href="/artists/<%= artist.id %>/edit"><h2><%= artist.name %><div class="cog"></div></h2></a>
         </div>
       </div>
 
