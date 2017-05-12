@@ -105,15 +105,15 @@ section.item:last-child{
 }
 
 .cog {
-  margin-left: 0.3em;
+  margin-left: 0.1em;
   opacity: 0;
   transition: visibility 0s linear 0.1s, opacity 0.1s linear;
   visibility: hidden;
-  width: 1em;
-  height: 1em;
+  width: 0.8em;
+  height: 0.8em;
   display: inline-block;
   background-image: url(iconmonstr-gear-1.svg);
-  background-size: 1em;
+  background-size: 0.8em;
 }
 
 .album-text .text-element:hover .cog {
